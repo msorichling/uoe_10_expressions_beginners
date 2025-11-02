@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BEGINNER: Leseverständnis & Expressions</title>
+    <title>Expressions-Trainer: BEGINNER</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,11 +49,23 @@
 
         .header-title {
             font-family: var(--font-display);
-            font-size: 48px; /* Größer für den Haupttitel */
+            font-size: 48px;
             font-weight: 700;
             color: var(--color-primary);
             margin-bottom: 40px;
             text-shadow: 0 0 10px rgba(57, 255, 20, 0.9);
+        }
+
+        .level-title {
+            font-family: var(--font-display);
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #111;
+            border-radius: 5px;
+            color: var(--color-primary);
+            box-shadow: 0 0 5px var(--color-primary);
         }
         
         .task-grid {
@@ -67,7 +79,6 @@
             display: block;
             padding: 20px;
             background-color: #1e1e1e;
-            color: var(--color-primary);
             border: 3px solid var(--color-secondary);
             border-radius: 10px;
             font-family: var(--font-display);
@@ -75,38 +86,45 @@
             font-weight: 700;
             text-decoration: none;
             transition: all 0.3s;
+            color: var(--color-primary);
             box-shadow: 0 0 5px var(--color-primary);
         }
 
         .task-button:hover {
+            opacity: 0.8;
+            transform: translateY(-3px);
             background-color: var(--color-primary);
             color: var(--color-background);
             border-color: var(--color-primary);
             box-shadow: 0 0 20px var(--color-primary);
-            transform: translateY(-3px);
+        }
+        
+        .hint {
+            margin-top: 30px; 
+            font-size: 0.8em; 
+            color: #777;
         }
     </style>
 </head>
 <body>
     
     <div class="main-container">
-        <h1 class="header-title">BEGINNER</h1>
-
-        <h2>Leseverständnis & Expressions</h2>
-
-        <div class="task-grid">
-            <a href="exercise1.html" class="task-button">1. Zukunft: The Gap Year Phenomenon</a>
-            <a href="exercise2.html" class="task-button">2. Global Trade: E-Commerce in Asia</a>
-            <a href="exercise3.html" class="task-button">3. Humanitäre Projekte: Fair Trade</a>
-            <a href="exercise4.html" class="task-button">4. Energie/Umwelt: Grüner Wasserstoff</a>
-            <a href="exercise5.html" class="task-button">5. Zukunftsaufgaben: Vertical Farming</a>
-            <a href="exercise6.html" class="task-button">6. Commonwealth: Südafrika</a>
-            <a href="exercise7.html" class="task-button">7. Commonwealth: Memory Games (Neuseeland)</a>
+        <h1 class="header-title">Expressions Trainer</h1>
+        
+        <div class="level-section">
+            <h2 class="level-title">BEGINNER</h2>
+            <div class="task-grid">
+                <a href="exercise1.html" class="task-button">1. Zukunft: The Gap Year Phenomenon</a>
+                <a href="exercise2.html" class="task-button">2. Global Trade: E-Commerce in Asia</a>
+                <a href="exercise3.html" class="task-button">3. Humanitäre Projekte: Fair Trade</a>
+                <a href="exercise4.html" class="task-button">4. Energie/Umwelt: Grüner Wasserstoff</a>
+                <a href="exercise5.html" class="task-button">5. Zukunftsaufgaben: Vertical Farming</a>
+                <a href="exercise6.html" class="task-button">6. Commonwealth: South Africa</a>
+                <a href="exercise7.html" class="task-button">7. Commonwealth: Memory Games (Neuseeland)</a>
+            </div>
         </div>
         
-        <p style="margin-top: 30px; font-size: 0.8em; color: #777;">
-            Hinweis: Speichern Sie die verlinkten Übungen unter den entsprechenden Dateinamen (z.B. exercise1.html, exercise7.html).
-        </p>
+        <p class="hint">Diese Seite dient als Startpunkt für den Beginner-Level im ByCS (mebis) Kurs.</p>
     </div>
     
 </body>

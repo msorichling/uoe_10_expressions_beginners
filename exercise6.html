@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 6: South Africa: The Rainbow Nation</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Roboto:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        /* High-Tech / Neon Green Palette */
+        :root {
+            --color-primary: #39ff14; /* Neon Green */
+            --color-secondary: #22a30b; /* Darker Green */
+            --color-background: #1e1e1e; /* Dark Grey/Black */
+            --color-text: #f0f0f0; /* Off-White */
+            --color-success: #39ff14; /* Neon Green */
+            --color-error: #ff3914; /* Neon Red */
+            --color-card: #2c2c2c; /* Slightly Lighter Card Background */
+            --shadow: 0 0 15px rgba(57, 255, 20, 0.5); /* Neon Shadow */
+            --font-display: 'Orbitron', sans-serif;
+            --font-text: 'Roboto', sans-serif;
+        }
+        
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-text);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-container {
+            background: var(--color-card);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            max-width: 1000px; 
+            width: 95%;
+            margin-top: 5vh;
+            border: 2px solid var(--color-primary);
+        }
+
+        .title {
+            font-family: var(--font-display);
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            text-align: center; 
+            border-bottom: 3px solid var(--color-secondary);
+            padding-bottom: 10px;
+            text-shadow: 0 0 5px rgba(57, 255, 20, 0.8);
+        }
+        
+        /* TEXT AREA STYLING */
+        .text-section {
+            border: 1px solid var(--color-secondary);
+            border-radius: 8px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-size: 15px;
+            background-color: #333;
+            padding: 20px; 
+            position: relative; 
+        }
+        
+        .text-section p {
+            margin-top: 1em;
+            margin-bottom: 1em;
+            padding: 5px 0 5px 40px; 
+            border-bottom: 1px dotted #555;
+            position: relative;
+        }
+        
+        /* Der Marker wird jetzt in den Freiraum links positioniert */
+        .section-marker {
+            position: absolute;
+            left: 0; 
+            top: 5px;
+            font-family: var(--font-display);
+            color: var(--color-primary);
+            font-size: 1.1em;
+            width: 40px;
+            text-align: right;
+        }
+
+        .task-title {
+            font-family: var(--font-display);
+            color: var(--color-primary);
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--color-primary);
+            padding-left: 10px;
+        }
+        
+        .instructions {
+            margin-bottom: 20px;
+            line-height: 1.4;
+            padding: 5px;
+            border-left: 2px solid var(--color-secondary);
+            font-size: 0.9em;
+        }
+
+        /* --- TASK 1: MATCHING STYLING --- */
+        .expressions-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #3a3a3a;
+            border-radius: 5px;
+        }
+        
+        .expression-item {
+            padding: 5px 10px;
+            margin: 5px;
+            border: 1px solid var(--color-primary);
+            border-radius: 5px;
+            font-weight: bold;
+            color: var(--color-primary);
+        }
+        
+        .definitions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 15px 30px;
+            margin-bottom: 30px;
+        }
+        
+        .definition-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 10px;
+            background-color: #222;
+            border-radius: 5px;
+        }
+        
+        .def-number {
+            font-weight: bold;
+            color: var(--color-primary);
+            width: 30px;
+            flex-shrink: 0;
+            margin-right: 15px;
+            text-align: center;
+        }
+        
+        .matching-area {
+            background-color: #3a3a3a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .matching-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px dashed #555;
+        }
+        
+        .matching-row:last-child {
+            border-bottom: none;
+        }
+
+        .matching-label {
+            font-weight: bold;
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+        }
+        
+        .matching-select {
+            padding: 5px;
+            border-radius: 5px;
+            border: 2px solid var(--color-secondary);
+            background-color: var(--color-card);
+            color: var(--color-text);
+            font-size: 1em;
+            width: 80px;
+            text-align: center;
+        }
+        
+        /* --- TASK 2: SYNONYM STYLING --- */
+        .synonym-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .synonym-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed #555;
+        }
+        
+.synonym-item:last-child {
+            border-bottom: none;
+        }
+
+        .target-word {
+            font-weight: bold;
+            color: var(--color-primary);
+            width: 300px; 
+            flex-shrink: 0;
+        }
+        
+        .synonym-input {
+            padding: 8px 12px;
+            border: 2px solid #555;
+            border-radius: 5px;
+            font-size: 1em;
+            background-color: var(--color-card);
+            color: var(--color-text);
+            transition: border-color 0.2s;
+            width: 300px;
+        }
+        
+        .synonym-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        /* CHECK BUTTON & FEEDBACK */
+        .controls {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            margin-top: 30px;
+        }
+
+        .check-button {
+            background-color: var(--color-secondary);
+            color: var(--color-text);
+            border: 2px solid var(--color-primary);
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 5px var(--color-primary);
+        }
+
+        .check-button:hover {
+            background-color: var(--color-primary);
+            color: var(--color-background);
+            box-shadow: 0 0 15px var(--color-primary);
+            text-decoration: none;
+        }
+        
+        .result-message {
+            margin-top: 20px;
+            font-size: 1.1em;
+            font-weight: 700;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid;
+            min-height: 60px; 
+        }
+
+        .result-message.success {
+            background-color: rgba(57, 255, 20, 0.1); 
+            color: var(--color-success);
+            border-color: var(--color-success);
+        }
+
+        .result-message.failure {
+            background-color: rgba(255, 57, 20, 0.1);
+            color: var(--color-error);
+            border-color: var(--color-error);
+        }
+
+        /* LÖSUNGSANZEIGE - STANDARDMÄSSIG VERSTECKT */
+        .correct-answer {
+            color: var(--color-success);
+            font-weight: bold;
+            margin-left: 10px;
+            display: none; 
+        }
+        
+        .show-solution {
+            text-decoration: underline;
+            color: var(--color-primary);
+            cursor: pointer;
+            margin-left: 15px;
+            font-size: 14px;
+        }
+        
+        .back-button {
+            background: none;
+            border: none;
+            color: var(--color-text);
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="main-container">
+        <a href="index.html" class="back-button">← Zurück zur Hauptauswahl</a>
+        <h1 class="title">South Africa: The Rainbow Nation</h1>
+
+        <div class="text-section">
+            <p><span class="section-marker">[1]</span> Twenty-five years after the end of apartheid, South Africa remains a nation of stark contrasts. Nicknamed the **Rainbow Nation** by Archbishop Desmond Tutu, it boasts eleven official languages and a profoundly **diverse cultural landscape**. While it is an **economic powerhouse** in Africa, its past casts long shadows on its current **social fabric**.</p>
+            <p><span class="section-marker">[2]</span> The country is still wrestling with extreme socio-economic **inequality**. Efforts to achieve **bridging the divide** and create a truly equal society face major hurdles, particularly concerning land ownership and wealth distribution. The **lingering effects** of segregation are visible in urban planning, where formerly white suburbs stand in stark contrast to crowded townships.</p>
+            <p><span class="section-marker">[3]</span> A significant challenge is the "youth bulge" and the high rates of youth unemployment. Nearly 60% of people aged 15–24 are jobless, creating immense social pressure. Education is a major **focus for change**, aiming to equip young South Africans with the skills necessary to participate fully in the modern, global economy and find their path to personal **prosperity**.</p>
+            <p><span class="section-marker">[4]</span> Tourists are drawn to South Africa not only for the majestic scenery of Table Mountain and the Kruger National Park, but also for its cultural history, particularly the legacy of Nelson Mandela. The country serves as a powerful symbol of reconciliation, demonstrating that overcoming deep-seated historical injustice is possible, although the road to true equity **remains long**.</p>
+        </div>
+
+        <!-- TASK 1: MATCHING -->
+        <div id="task1">
+            <h2 class="task-title">Task 1: Matching Expressions (A-E with 0-7)</h2>
+            <p class="instructions">Match the expressions (A – E) as used in the text with their corresponding definitions (0 – 7). Write the correct numbers in the grid below. Be careful: There are two definitions that you do not need.</p>
+            
+            <!-- Expressions for Overview -->
+            <div class="expressions-list">
+                <span class="expression-item">A. Rainbow Nation [Sec 1]</span>
+                <span class="expression-item">B. economic powerhouse [Sec 1]</span>
+                <span class="expression-item">C. social fabric [Sec 1]</span>
+                <span class="expression-item">D. bridging the divide [Sec 2]</span>
+                <span class="expression-item">E. lingering effects [Sec 2]</span>
+            </div>
+
+            <!-- Definitions -->
+            <div class="definitions-grid">
+                <div class="definition-item"><span class="def-number">0</span> a highly successful and productive economy. (B)</div>
+                <div class="definition-item"><span class="def-number">1</span> effects of a past event that continue to be felt for a long time. (E)</div>
+                <div class="definition-item"><span class="def-number">2</span> the structure and cohesion of a society. (C)</div>
+                <div class="definition-item"><span class="def-number">3</span> the process of closing the gap between unequal groups. (D)</div>
+                <div class="definition-item"><span class="def-number">4</span> nickname for South Africa referring to its diverse population. (A)</div>
+                <div class="definition-item"><span class="def-number">5</span> the extreme socio-economic inequality. (Do not need)</div>
+                <div class="definition-item"><span class="def-number">6</span> struggle with high youth unemployment. (Do not need)</div>
+                <div class="definition-item"><span class="def-number">7</span> the system of land ownership. (Do not need)</div>
+            </div>
+            
+            <!-- Matching Area -->
+            <div class="matching-area">
+                <div class="matching-row">
+                    <span class="matching-label">A. Rainbow Nation:</span>
+                    <select id="match-A" class="matching-select"></select>
+                    <span id="solution-A" class="correct-answer">Korrekte Nummer: 4</span>
+                </div>
+                <div class="matching-row">
+                    <span class="matching-label">B. economic powerhouse:</span>
+                    <select id="match-B" class="matching-select"></select>
+                    <span id="solution-B" class="correct-answer">Korrekte Nummer: 0</span>
+                </div>
+                <div class="matching-row">
+                    <span class="matching-label">C. social fabric:</span>
+                    <select id="match-C" class="matching-select"></select>
+                    <span id="solution-C" class="correct-answer">Korrekte Nummer: 2</span>
+                </div>
+                <div class="matching-row">
+                    <span class="matching-label">D. bridging the divide:</span>
+                    <select id="match-D" class="matching-select"></select>
+                    <span id="solution-D" class="correct-answer">Korrekte Nummer: 3</span>
+                </div>
+                <div class="matching-row">
+                    <span class="matching-label">E. lingering effects:</span>
+                    <select id="match-E" class="matching-select"></select>
+                    <span id="solution-E" class="correct-answer">Korrekte Nummer: 1</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TASK 2: SYNONYM FINDING -->
+        <div id="task2">
+            <h2 class="task-title">Task 2: Find a Word or Expression</h2>
+            <p class="instructions">Find a word or expression in the text that means the same as each of the following words (1 – 5). The section where the word is located is indicated.</p>
+            
+            <ul class="synonym-list" id="synonymList">
+                <!-- List items generated by JS -->
+            </ul>
+        </div>
+        
+        <div class="controls">
+            <button class="check-button" onclick="checkAllTasks()">Prüfe beide Aufgaben</button>
+            <span class="show-solution" id="solutionButton" onclick="toggleSolutions()">Lösungen anzeigen</span>
+            <div class="result-message" id="resultMessage" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script>
+        // #######################################################
+        // 1. ÜBUNGSDATEN
+        // #######################################################
+        
+        // Task 1: Matching (Expression ID: Correct Definition Number)
+        const matchingData = {
+            'A': 4, 
+            'B': 0, 
+            'C': 2, 
+            'D': 3, 
+            'E': 1  
+        };
+        
+        // Task 2: Synonym Finding (Target Word: Correct Synonym from text, Answer is stored in data attribute)
+        const synonymData = [
+            { id: 1, target: "obvious (adj)", context: "[Section 1]", answer: "stark" }, 
+            { id: 2, target: "battling/dealing with (verb gerund)", context: "[Section 2]", answer: "wrestling" },
+            { id: 3, target: "gap (noun)", context: "[Section 2]", answer: "divide" },
+            { id: 4, target: "jobless (adj)", context: "[Section 3]", answer: "jobless" },
+            { id: 5, target: "great wealth (noun)", context: "[Section 3]", answer: "prosperity" }
+        ];
+
+        const definitionNumbers = [0, 1, 2, 3, 4, 5, 6, 7];
+
+        // #######################################################
+        // 2. RENDERING
+        // #######################################################
+
+        function renderMatching() {
+            const selects = document.querySelectorAll('.matching-select');
+            selects.forEach(select => {
+                select.innerHTML = '<option value="">- Wahl -</option>' + 
+                    definitionNumbers.map(num => `<option value="${num}">${num}</option>`).join('');
+            });
+        }
+
+        function renderSynonyms() {
+            const list = document.getElementById('synonymList');
+            list.innerHTML = synonymData.map(item => `
+                <li class="synonym-item">
+                    <span class="target-word">${item.id}. ${item.target} ${item.context}:</span>
+                    <input type="text" id="synonym-input-${item.id}" class="synonym-input" data-id="${item.id}" data-answer="${item.answer}">
+                    <span id="synonym-solution-${item.id}" class="correct-answer"></span>
+                </li>
+            `).join('');
+        }
+        
+        // #######################################################
+        // 3. LOGIK UND PRÜFUNG
+        // #######################################################
+        
+        function normalizeInput(input) {
+            return input.trim().toLowerCase().replace(/[.,!?'"\/]/g, ''); 
+        }
+
+        function generateFeedback(percentage) {
+            const totalTasks = synonymData.length + Object.keys(matchingData).length;
+
+            if (percentage === 100) {
+                return `Fantastisch! Alle ${totalTasks} Antworten sind korrekt! Deine Beherrschung des Wortschatzes ist beeindruckend.`;
+            } else if (percentage >= 80) {
+                return "Sehr gut! Du hast einen Großteil der Aufgaben richtig gelöst. Nur noch kleine Details müssen gefestigt werden.";
+            } else if (percentage >= 60) {
+                return "Gut gemacht! Du bist auf dem richtigen Weg. Gehe die fehlerhaften Aufgaben noch einmal durch und schaue dir die Lösungen an.";
+            } else if (percentage >= 40) {
+                return "Motivierendes Ergebnis. Die Grundlagen sind da, aber konzentriere dich jetzt auf die spezifischen Vokabeln im Text. Nutze die Lösungen zum Lernen!";
+            } else {
+                return "Gib nicht auf! Das ist eine schwierige Aufgabe. Nutze die Lösungen, um zu lernen, und versuche es dann erneut. Jeder fängt klein an.";
+            }
+        }
+
+        function checkTask1() {
+            let correctCount = 0;
+            let totalCount = 0;
+
+            for (const expression in matchingData) {
+                totalCount++;
+                const selectElement = document.getElementById(`match-${expression}`);
+                const userAnswer = parseInt(selectElement.value);
+                const correctAnswer = matchingData[expression];
+                
+                selectElement.style.border = `2px solid var(--color-secondary)`;
+
+                if (userAnswer === correctAnswer) {
+                    correctCount++;
+                    selectElement.style.border = `2px solid var(--color-success)`;
+                } else if (selectElement.value) {
+                    selectElement.style.border = `2px solid var(--color-error)`;
+                }
+            }
+            return { correct: correctCount, total: totalCount, name: 'Task 1 (Matching)' };
+        }
+
+        function checkTask2() {
+            let correctCount = 0;
+            let totalCount = synonymData.length;
+
+            synonymData.forEach(item => {
+                const inputElement = document.getElementById(`synonym-input-${item.id}`);
+                const userAnswer = normalizeInput(inputElement.value);
+                const correctAnswer = normalizeInput(item.answer);
+                
+                inputElement.style.border = `2px solid #555`;
+
+                if (userAnswer === correctAnswer) {
+                    correctCount++;
+                    inputElement.style.border = `2px solid var(--color-success)`;
+                } else if (inputElement.value) {
+                    inputElement.style.border = `2px solid var(--color-error)`;
+                }
+            });
+            return { correct: correctCount, total: totalCount, name: 'Task 2 (Synonyme)' };
+        }
+
+
+        function checkAllTasks() {
+            const result1 = checkTask1();
+            const result2 = checkTask2();
+            
+            const totalCorrect = result1.correct + result2.correct;
+            const totalTasks = result1.total + result2.total;
+            const scorePercentage = (totalCorrect / totalTasks) * 100;
+            
+            const resultMessage = document.getElementById('resultMessage');
+            resultMessage.style.display = 'block';
+
+            let messageContent = `
+                ${generateFeedback(scorePercentage)}<br><br>
+                **Detailergebnis:** ${totalCorrect} von ${totalTasks} (${scorePercentage.toFixed(0)}%) korrekt.<br>
+                ${result1.name}: ${result1.correct}/${result1.total} | ${result2.name}: ${result2.correct}/${result2.total}
+            `;
+            
+            if (totalCorrect === totalTasks) {
+                resultMessage.className = 'result-message success';
+            } else {
+                resultMessage.className = 'result-message failure';
+            }
+            
+            resultMessage.innerHTML = messageContent.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); 
+
+        }
+        
+        function toggleSolutions() {
+            const solutionSpansT1 = document.querySelectorAll('.matching-area .correct-answer');
+            const solutionSpansT2 = document.querySelectorAll('#task2 .correct-answer');
+            const inputElementsT2 = document.querySelectorAll('.synonym-input');
+            
+            const button = document.getElementById('solutionButton');
+            
+            const isHidden = button.textContent === 'Lösungen anzeigen';
+
+            if (isHidden) {
+                solutionSpansT1.forEach(span => span.style.display = 'inline-block');
+                
+                inputElementsT2.forEach((input, index) => {
+                    const answer = input.getAttribute('data-answer');
+                    solutionSpansT2[index].textContent = `(Korrekte Antwort: ${answer})`;
+                    solutionSpansT2[index].style.display = 'inline-block';
+                });
+                
+                button.textContent = 'Lösungen verbergen';
+            } else {
+                solutionSpansT1.forEach(span => span.style.display = 'none');
+                solutionSpansT2.forEach(span => span.style.display = 'none');
+                button.textContent = 'Lösungen anzeigen';
+            }
+        }
+
+
+        // #######################################################
+        // 4. INITIALISIERUNG
+        // #######################################################
+        
+        window.onload = () => {
+             renderMatching();
+             renderSynonyms();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEGINNER: Leseverständnis & Expressions</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Roboto:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        /* High-Tech / Neon Green Palette */
+        :root {
+            --color-primary: #39ff14; /* Neon Green */
+            --color-secondary: #22a30b; /* Darker Green */
+            --color-background: #1e1e1e; /* Dark Grey/Black */
+            --color-text: #f0f0f0; /* Off-White */
+            --color-card: #2c2c2c; /* Slightly Lighter Card Background */
+            --shadow: 0 0 15px rgba(57, 255, 20, 0.5); /* Neon Shadow */
+            --font-display: 'Orbitron', sans-serif;
+            --font-text: 'Roboto', sans-serif;
+        }
+        
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 20px;
+            font-family: var(--font-text);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-container {
+            background: var(--color-card);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            max-width: 900px;
+            width: 95%;
+            margin-top: 5vh;
+            border: 2px solid var(--color-primary);
+            text-align: center;
+        }
+
+        .header-title {
+            font-family: var(--font-display);
+            font-size: 48px; /* Größer für den Haupttitel */
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.9);
+        }
+        
+        .task-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .task-button {
+            display: block;
+            padding: 20px;
+            background-color: #1e1e1e;
+            color: var(--color-primary);
+            border: 3px solid var(--color-secondary);
+            border-radius: 10px;
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 0 5px var(--color-primary);
+        }
+
+        .task-button:hover {
+            background-color: var(--color-primary);
+            color: var(--color-background);
+            border-color: var(--color-primary);
+            box-shadow: 0 0 20px var(--color-primary);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="main-container">
+        <h1 class="header-title">BEGINNER</h1>
+
+        <h2>Leseverständnis & Expressions</h2>
+
+        <div class="task-grid">
+            <a href="exercise1.html" class="task-button">1. Zukunft: The Gap Year Phenomenon</a>
+            <a href="exercise2.html" class="task-button">2. Global Trade: E-Commerce in Asia</a>
+            <a href="exercise3.html" class="task-button">3. Humanitäre Projekte: Fair Trade</a>
+            <a href="exercise4.html" class="task-button">4. Energie/Umwelt: Grüner Wasserstoff</a>
+            <a href="exercise5.html" class="task-button">5. Zukunftsaufgaben: Vertical Farming</a>
+            <a href="exercise6.html" class="task-button">6. Commonwealth: Südafrika</a>
+            <a href="exercise7.html" class="task-button">7. Commonwealth: Memory Games (Neuseeland)</a>
+        </div>
+        
+        <p style="margin-top: 30px; font-size: 0.8em; color: #777;">
+            Hinweis: Speichern Sie die verlinkten Übungen unter den entsprechenden Dateinamen (z.B. exercise1.html, exercise7.html).
+        </p>
+    </div>
+    
+</body>
+</html>
